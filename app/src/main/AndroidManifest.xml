@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.taximagangue">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Actividades.Conductores.NotificationBookingActivity"></activity>
+        <activity android:name=".Actividades.Clientes.CalificationDriverActivity" />
+        <activity android:name=".Actividades.Conductores.CalificacionClientActivity" />
+        <activity android:name=".Actividades.Conductores.MapDriverBoookingActivity" />
+        <activity android:name=".Actividades.Clientes.MapClientBookingActivity" />
+
+        <receiver
+            android:name=".receivers.AcceptReceiver"
+            android:enabled="true" />
+        <receiver
+            android:name=".receivers.CancelReceiver"
+            android:enabled="true" />
+
+        <service android:name=".services.MyFirebaseMessagingCloud">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".Actividades.Clientes.RequestDriverActivity" />
+        <activity
+            android:name=".Actividades.Clientes.DetailRequestActivity"
+            android:parentActivityName=".Actividades.Clientes.MapClienteActivity" />
+        <activity android:name=".Actividades.Conductores.MapConductoresActivity" />
+        <activity android:name=".Actividades.Clientes.MapClienteActivity" />
+        <activity
+            android:name=".Actividades.Conductores.RegistrarConductorActivity"
+            android:parentActivityName=".Actividades.OptionAuthActivity" />
+        <activity
+            android:name=".Actividades.LoginActivity"
+            android:parentActivityName=".Actividades.OptionAuthActivity" />
+        <activity
+            android:name=".Actividades.Clientes.RegistrarActivity"
+            android:parentActivityName=".Actividades.OptionAuthActivity" />
+        <activity
+            android:name=".Actividades.OptionAuthActivity"
+            android:parentActivityName=".Actividades.InicioActivity" />
+        <activity android:name=".Actividades.InicioActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+    </application>
+
+</manifest>
